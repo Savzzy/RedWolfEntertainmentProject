@@ -1,38 +1,47 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../../assets/favicon.png";
+import HamburgerIcon from "../../icons/HamburgerIcon";
 
-const NavItemsContainer = styled.div`
+const DesktopNavItemsContainer = styled.div`
   position: fixed;
   width: 100%;
-  
-  /* background-color: ${(props) => props.theme.colors.primary}; */
   display: flex;
   z-index: 1;
   justify-content: flex-end;
   align-items: center;
+  @media (max-width: 922px) {
+    display: none;
+    background-color: blue;
+  }
+`;
+
+const MobileNavItemsContainer = styled.div`
+  display: contents;
+  @media (min-width: 922px) {
+    display: flex;
+    background-color: white;
+  }
 `;
 
 const NavigationBarContainer = styled.div`
   position: fixed;
   width: 100%;
-  /* height: 50px; */
   display: flex;
   z-index: 1;
-  /* justify-content: flex-end; */
   align-items: center;
 `;
 
 const NavItems = styled.div`
-  width: fit-content;
-  height: 15px;
-  /* background-color: white; */
-  padding: 10px 20px;
+  padding: 5px 15px;
   margin-right: 30px;
   text-align: center;
   color: white;
   font-weight: bolder;
   font-size: larger;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -64,13 +73,17 @@ const NavBar: React.FC = (): JSX.Element => {
         <Logo />
         <LogoText>REDWOLF</LogoText>
       </LogoContainer>
-      <NavItemsContainer>
+      <DesktopNavItemsContainer>
         <NavItems>HOME</NavItems>
         <NavItems>PORTFOLIO</NavItems>
         <NavItems>SERVICES</NavItems>
         <NavItems>ABOUT</NavItems>
         <NavItems>CONTACT</NavItems>
-      </NavItemsContainer>
+      </DesktopNavItemsContainer>
+
+      <MobileNavItemsContainer>
+        <HamburgerIcon height={20}></HamburgerIcon>
+      </MobileNavItemsContainer>
     </NavigationBarContainer>
   );
 };
