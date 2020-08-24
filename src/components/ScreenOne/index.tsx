@@ -6,7 +6,7 @@ import { RocketIcon } from "../icons";
 
 const Container = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   /* background-color: black; */
 
   display: flex;
@@ -28,7 +28,7 @@ const Video = styled.video`
 const Overlay = styled.div`
   background-color: black;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   opacity: 0.8;
   z-index: -1;

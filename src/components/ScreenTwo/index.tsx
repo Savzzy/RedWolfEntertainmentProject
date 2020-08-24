@@ -16,12 +16,10 @@ import NBC from "../../assets/Logos/Lockup-NBCU.png";
 import Taylor from "../../assets/Logos/taylor.png";
 import CHI from "../../assets/Logos/CHI.png";
 import Images from "./Images";
-import Footer from "./Footer";
 
 const Container = styled.div`
   width: 100%;
   background-color: black;
-  height: 100vh;
 
   margin: 0 auto;
 `;
@@ -75,7 +73,6 @@ const ScreenTwo: React.FC = (): JSX.Element => {
           })}
         </ImagesContainer>
       </PartnersContainer>
-      <Footer />
     </Container>
   );
 };
