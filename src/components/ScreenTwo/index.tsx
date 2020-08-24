@@ -1,47 +1,82 @@
 import React from "react";
 import styled from "styled-components";
-import WatchesIcon from "../../assets/Watches-of-Switz.png";
-import ScottMiracle from "../../assets/ScottsMiracleGro.png";
-import Titan from "../../assets/Logos/titan-logo-500-500.png";
 
-const Header = styled.div`
+import WatchesIcon from "../../assets/Watches-of-Switz.png";
+import LaWeekly from "../../assets/Logos/LAWEEKLY.png";
+import Titan from "../../assets/Logos/TITAN.png";
+import JMFallon from "../../assets/Logos/emo_tonightshow_01.jpg";
+import KSwiss from "../../assets/Logos/k-swiss.png";
+import BMW from "../../assets/Logos/BMW.png";
+import InfusionSoft from "../../assets/Logos/infusionsoft-logo.png";
+import Seiko from "../../assets/Logos/Seiko_GrandSeiko_white.png";
+import GlamSeamless from "../../assets/Logos/glamSeamless.png";
+import VaynerMedia from "../../assets/Logos/logo-white.png";
+import RollsRoyce from "../../assets/Logos/Logo-Rolls-Royce.png";
+import NBC from "../../assets/Logos/Lockup-NBCU.png";
+import Taylor from "../../assets/Logos/taylor.png";
+import CHI from "../../assets/Logos/CHI.png";
+import Images from "./Images";
+import Footer from "./Footer";
+
+const Container = styled.div`
   width: 100%;
   background-color: black;
-  top: 100%;
-  position: absolute;
-  height: 100%;
+  height: 100vh;
+
   margin: 0 auto;
 `;
 
-const H2Content = styled.h2`
-  top: 25%;
-  color: #ffffff;
-  position: absolute;
-  left: 40%;
+const PartnersContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
 `;
 
-const ImageContainer = styled.div`
+const H2Content = styled.h2`
+  color: ${(props) => props.theme.colors.primary};
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 100px;
+`;
+
+const ImagesContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-`;
-
-const Image = styled.img`
-  width: 80px;
-  height: 80px;
+  flex-wrap: wrap;
+  padding: 20px;
 `;
 
 const ScreenTwo: React.FC = (): JSX.Element => {
+  const images = [
+    Titan,
+    WatchesIcon,
+    LaWeekly,
+    JMFallon,
+    KSwiss,
+    BMW,
+    InfusionSoft,
+    Seiko,
+    GlamSeamless,
+    VaynerMedia,
+    RollsRoyce,
+    NBC,
+    Taylor,
+    CHI,
+  ];
   return (
-    <Header>
-      <H2Content>Who We Work With</H2Content>
-      <ImageContainer>
-        <Image src={Titan} alt="icon" />
-      </ImageContainer>
-    </Header>
+    <Container>
+      <PartnersContainer>
+        <H2Content>Who We Work With</H2Content>
+        <ImagesContainer>
+          {images.map((image) => {
+            return <Images image={image} />;
+          })}
+        </ImagesContainer>
+      </PartnersContainer>
+      <Footer />
+    </Container>
   );
 };
 
